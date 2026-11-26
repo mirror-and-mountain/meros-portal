@@ -1,0 +1,42 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "mirror-and-mountain/meros-portal",
+    "description": "Customer Portals for Meros-powered WordPress sites.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tmw-mm",
+            "email": "toby@mirrorandmountain.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "illuminate/testing": "^13.0",
+        "mirror-and-mountain/meros-framework": "^1.0",
+        "phpunit/phpunit": "^9.6",
+        "yoast/phpunit-polyfills": "^3.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MM\\Meros\\Portal\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml",
+        "test:integration": "phpunit -c phpunit.integration.xml"
+    },
+    "autoload": {
+        "psr-4": {
+            "MM\\Meros\\Portal\\": "src/",
+            "MM\\Meros\\Portal\\App\\": "src/app/"
+        }
+    },
+    "extra": {
+        "meros": {
+            "provider": "MM\\Meros\\Portal\\ServiceProvider"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
