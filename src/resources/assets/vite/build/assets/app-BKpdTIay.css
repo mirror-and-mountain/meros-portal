@@ -1,0 +1,2 @@
+/*! tailwindcss v4.3.5 | MIT License | https://tailwindcss.com */
+@layer theme{:root,:host{--font-sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--spacing:.25rem}}@layer base,components;@layer utilities{.static{position:static}.table{display:table}.p-5{padding:calc(var(--spacing) * 5)}.font-sans{font-family:var(--font-sans)}}

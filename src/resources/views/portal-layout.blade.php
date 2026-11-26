@@ -6,11 +6,13 @@
  
         <title>{{ $title ?? config('app.name') }}</title> 
         @viteAssets('meros_portal')
+        @merosFormStyles()
         @livewireStyles
     </head>
     <body class="font-sans">
         {{ $slot }}
         <footer>
+            @merosFormScripts()
             @livewireScripts
         </footer>
     </body>

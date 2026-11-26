@@ -1,21 +1,28 @@
-<div>
-    <form class="flex flex-col" wire:submit="login">
-        <label for="username">Email Address</label>
-        <input
-            class="border! border-gray-500 p-3.5"
-            id="username" 
-            type="email" 
-            wire:model="username"
-        />
-
-        <label for="password">Password</label>
-        <input
-            class="border! border-gray-500 p-3.5"
-            id="password" 
-            type="password" 
-            wire:model="password"
-        />
-
-        <button class="border! border-gray-500 p-3.5 mt-3.5" type="submit">Login</button>
-    </form>
+<div class="p-5">
+    {!! $formHtml !!}
 </div>
+@script
+    <script>
+        (() => {
+            $wire.$el.addEventListener('mforms::merosPortalLogin', function(event) {
+                const {form, formData} = event.detail;
+                if (formData.username && formData.password) {
+                    form.isSubmitting = true;
+                    $wire.login(formData.username, formData.password)
+                        .then(success => {
+                            if (!success) form.showError('The username or password is incorrect.');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            form.showError('Unable to log in. Please try again.');
+                        })
+                        .finally(() => {
+                            form.isSubmitting = false;
+                        });
+                } else {
+                    form.showError('Please enter both username and password.');
+                }
+            });
+        })();
+    </script>
+@endscript
